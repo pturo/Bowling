@@ -7,59 +7,57 @@
 <br>
 <label>Wczytaj plik: </label>
 <input type="file" (change)="onChange($event)">
-<!--<pre>{{ fileContent }}</pre>-->
-<ng-template *ngFor="let i of results">
-    <table>
-        <tr>
-            <th>Zawodnik</th>
-            <th>Wynik</th>
-            <th>1</th>
-            <th>2</th>
-            <th>3</th>
-            <th>4</th>
-            <th>5</th>
-            <th>6</th>
-            <th>7</th>
-            <th>8</th>
-            <th>9</th>
-            <th>10</th>
-            <th>11</th>
-            <th>12</th>
-            <th>13</th>
-            <th>14</th>
-            <th>15</th>
-            <th>16</th>
-            <th>17</th>
-            <th>18</th>
-            <th>19</th>
-            <th>20</th>
-            <th>21</th>
-            <th>22</th>
-        </tr>
-        <tr>
-            <td>{{ i }}</td>
-            <!-- <td>{{ i.totalScore }}</td>
-            <td>{{ i.one }}</td>
-            <td>{{ i.two }}</td>
-            <td>{{ i.three }}</td>
-            <td>{{ i.four }}</td>
-            <td>{{ i.five }}</td>
-            <td>{{ i.six }}</td>
-            <td>{{ i.seven }}</td>
-            <td>{{ i.eight }}</td>
-            <td>{{ i.nine }}</td>
-            <td>{{ i.ten }}</td>
-            <td>{{ i.eleven }}</td>
-            <td>{{ i.twelve }}</td>
-            <td>{{ i.thirteen }}</td>
-            <td>{{ i.fourteen }}</td>
-            <td>{{ i.fifteen }}</td>
-            <td>{{ i.sixteen }}</td>
-            <td>{{ i.seventeen }}</td>
-            <td>{{ i.eighteen }}</td>
-            <td>{{ i.nineteen }}</td>
-            <td>{{ i.twenty }}</td>
-            <td>{{ i.twentyOne }}</td> -->
-        </tr>
-    </table>
-</ng-template>
+<table border="1">
+    <thead>
+        <th>Zawodnik</th>
+        <th>Wynik</th>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
+        <th>6</th>
+        <th>7</th>
+        <th>8</th>
+        <th>9</th>
+        <th>10</th>
+        <th>11</th>
+        <th>12</th>
+        <th>13</th>
+        <th>14</th>
+        <th>15</th>
+        <th>16</th>
+        <th>17</th>
+        <th>18</th>
+        <th>19</th>
+        <th>20</th>
+        <th>21</th>
+        <th>22</th>
+    </thead>
+    <tbody *ngFor="let i of results">
+        <td>{{ i.player }}</td>
+        <td>{{ i.totalScore }}</td>
+        <td>{{ i.one }}</td>
+        <td>{{ i.two }}</td>
+        <td>{{ i.three }}</td>
+        <td>{{ i.four }}</td>
+        <td>{{ i.five }}</td>
+        <td>{{ i.six }}</td>
+        <td>{{ i.seven }}</td>
+        <td>{{ i.eight }}</td>
+        <td>{{ i.nine }}</td>
+        <td>{{ i.ten }}</td>
+        <td>{{ i.eleven }}</td>
+        <td>{{ i.twelve }}</td>
+        <td>{{ i.thirteen }}</td>
+        <td>{{ i.fourteen }}</td>
+        <td>{{ i.fifteen }}</td>
+        <td>{{ i.sixteen }}</td>
+        <td>{{ i.seventeen }}</td>
+        <td>{{ i.eighteen }}</td>
+        <td>{{ i.nineteen }}</td>
+        <td>{{ i.twenty }}</td>
+        <td>{{ i.twentyOne }}</td>
+        <td>{{ i.twentyTwo }}</td>
+    </tbody>
+</table>
