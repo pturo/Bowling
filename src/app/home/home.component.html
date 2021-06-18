@@ -6,7 +6,8 @@
 </p>
 <br>
 <label>Wczytaj plik: </label>
-<input type="file" (change)="onChange($event)">
+<input type="file" (change)="loadData($event)">
+<br>
 <table border="1">
     <thead>
         <th>Zawodnik</th>
@@ -34,30 +35,32 @@
         <th>21</th>
         <th>22</th>
     </thead>
-    <tbody *ngFor="let i of results">
-        <td>{{ i.player }}</td>
-        <td>{{ i.totalScore }}</td>
-        <td>{{ i.one }}</td>
-        <td>{{ i.two }}</td>
-        <td>{{ i.three }}</td>
-        <td>{{ i.four }}</td>
-        <td>{{ i.five }}</td>
-        <td>{{ i.six }}</td>
-        <td>{{ i.seven }}</td>
-        <td>{{ i.eight }}</td>
-        <td>{{ i.nine }}</td>
-        <td>{{ i.ten }}</td>
-        <td>{{ i.eleven }}</td>
-        <td>{{ i.twelve }}</td>
-        <td>{{ i.thirteen }}</td>
-        <td>{{ i.fourteen }}</td>
-        <td>{{ i.fifteen }}</td>
-        <td>{{ i.sixteen }}</td>
-        <td>{{ i.seventeen }}</td>
-        <td>{{ i.eighteen }}</td>
-        <td>{{ i.nineteen }}</td>
-        <td>{{ i.twenty }}</td>
-        <td>{{ i.twentyOne }}</td>
-        <td>{{ i.twentyTwo }}</td>
+    <tbody>
+        <tr *ngFor="let res of jsonResults">
+            <td>{{ res.name }}</td>
+            <td>{{ totalScore }}</td>
+            <td>{{ res.score[0] }}</td>
+            <td>{{ res.score[1] }}</td>
+            <td>{{ res.score[2] }}</td>
+            <td>{{ res.score[3] }}</td>
+            <td>{{ res.score[4] }}</td>
+            <td>{{ res.score[5] }}</td>
+            <td>{{ res.score[6] }}</td>
+            <td>{{ res.score[7] }}</td>
+            <td>{{ res.score[8] }}</td>
+            <td>{{ res.score[9] }}</td>
+            <td>{{ res.score[10] }}</td>
+            <td>{{ res.score[11] }}</td>
+            <td>{{ res.score[12] }}</td>
+            <td>{{ res.score[13] }}</td>
+            <td>{{ res.score[14] }}</td>
+            <td>{{ res.score[15] }}</td>
+            <td>{{ res.score[16] }}</td>
+            <td>{{ res.score[17] }}</td>
+            <td>{{ res.score[18] }}</td>
+            <td>{{ res.score[19] }}</td>
+            <td>{{ res.score[20] }}</td>
+            <td>{{ res.score[21] }}</td>
+        </tr>
     </tbody>
 </table>

@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { BowlingResult } from '../bowling-result';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-home',
@@ -8,61 +8,67 @@ import { BowlingResult } from '../bowling-result';
 })
 export class HomeComponent implements OnInit {
 
-  //fileContent: string = '';
-  results! : BowlingResult[];
-
-  public onChange(event: any): void {
-    let file = event.target.files[0];
-    let fileReader: FileReader = new FileReader();
-    let self = this;
-    fileReader.onloadend = function () {
-      // read line by line
-      for (const line of (<string>fileReader.result).split(/[\r\n]+/)){
-        //console.log("line: " + line);
-
-        for(const k of line.split(","))
-        {
-          console.log("k: " + k);
-
-          self.results = [
-            {
-              player: k,
-              totalScore: 12435,
-              one: Number(k),
-              two: Number(k),
-              three: Number(k),
-              four: Number(k),
-              five: Number(k),
-              six: Number(k),
-              seven: Number(k),
-              eight: Number(k),
-              nine: Number(k),
-              ten: Number(k),
-              eleven: Number(k),
-              twelve: Number(k),
-              thirteen: Number(k),
-              fourteen: Number(k),
-              fifteen: Number(k),
-              sixteen: Number(k),
-              seventeen: Number(k),
-              eighteen: Number(k),
-              nineteen: Number(k),
-              twenty: Number(k),
-              twentyOne: Number(k),
-              twentyTwo: Number(k),
-            }
-          ];
-
-          console.log(self.results);
-        }
-      }
-    }
-    fileReader.readAsText(file);
-  }
+  jsonResults: any;
+  totalScore: any;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  public loadData(event: any) {
+    let file = event.target.files[0];
+    let self = this; // for accessing jsonResults variable
+    if(file) {
+      let fileReader: FileReader = new FileReader();
+      fileReader.readAsText(file, "utf-8");
+      fileReader.onload = function(evt: any) {
+        self.jsonResults = JSON.parse(evt.target["result"]);
+        // DEBUG
+        for(var a = 0; a < self.jsonResults.length; a++) {
+          console.log("data: " + JSON.stringify(self.jsonResults[a].score));
+        }
+        console.log("length: " + self.jsonResults.length);
+        for(var i = 0; i < self.jsonResults.length; i++) {
+          self.totalScore = Number(JSON.stringify(self.jsonResults[i].score.reduce((a: any, b: any) => a + b, 0)));
+          console.log(Number(JSON.stringify(self.totalScore)));
+        }
+      }
+    }
+  }
+
+  // different approach
+  // WARNING: these lines of code were made for
+  // testing reading content from .txt files and
+  // they are not valid anymore. Our task uses JSON format.
+  // public loadData(event: any) {
+  //   let file = event.target.files[0];
+  //   let fileReader: FileReader = new FileReader();
+  //   fileReader.onloadend = function () {
+  //     let rows = (<string>fileReader.result).split(/[\r\n]+/);
+  //     //console.log("rows: " + rows);
+  //     // get each row of txt file
+  //     for (var i = 0; i < rows.length; i++) {
+  //       var validRowData = [];
+  //       var rowData = rows[i].split(",");
+  //       console.log("rowData: " + rowData);
+  //       // get data from row
+  //       for (var j = 0; j < rowData.length; j++) {
+  //         if (rowData[j] == "") {
+  //         } else {
+  //           validRowData.push(rowData[j]);
+  //         }
+  //       }
+  //       // create row template
+  //       var rowTemplate = "<tr>";
+  //       for (var k = 0; k < validRowData.length; k++) {
+  //         rowTemplate += "<td>" + validRowData[k] + "</td>";
+  //       }
+  //       rowTemplate += "</tr>";
+  //       // append to table
+  //       $('#resultsTable').append(rowTemplate);
+  //     }
+  //   }
+  //   fileReader.readAsText(file);
+  // }
 }
