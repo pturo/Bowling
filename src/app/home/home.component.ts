@@ -9,7 +9,6 @@ import * as $ from 'jquery';
 export class HomeComponent implements OnInit {
 
   jsonResults: any;
-  totalScore: any;
 
   constructor() { }
 
@@ -25,13 +24,14 @@ export class HomeComponent implements OnInit {
       fileReader.onload = function(evt: any) {
         self.jsonResults = JSON.parse(evt.target["result"]);
         // DEBUG
-        for(var a = 0; a < self.jsonResults.length; a++) {
-          console.log("data: " + JSON.stringify(self.jsonResults[a].score));
-        }
-        console.log("length: " + self.jsonResults.length);
+        // for(var a = 0; a < self.jsonResults.length; a++) {
+        //   console.log("data: " + JSON.stringify(self.jsonResults[a].score));
+        // }
+        // console.log("length: " + self.jsonResults.length);
         for(var i = 0; i < self.jsonResults.length; i++) {
-          self.totalScore = Number(JSON.stringify(self.jsonResults[i].score.reduce((a: any, b: any) => a + b, 0)));
-          console.log(Number(JSON.stringify(self.totalScore)));
+          self.jsonResults[i].totalScore = Number(JSON.stringify(self.jsonResults[i].score.reduce((a: any, b: any) => a + b, 0)));
+          // DEBUG
+          console.log("wynik: " + Number(JSON.stringify(self.jsonResults[i].totalScore)));
         }
       }
     }
