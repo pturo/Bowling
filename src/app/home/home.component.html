@@ -10,7 +10,7 @@
     <div class="content p-3 mb-2 bg-dark text-white">
         <label>Wczytaj plik: </label>
         <input class="btn btn-primary" type="file" (change)="loadData($event)">
-        <table class="table table-dark" border="2" align="center">
+        <table id="resultsTable" class="table table-dark" border="2" align="center">
             <thead>
                 <th scope="col">Zawodnik</th>
                 <th scope="col">Wynik</th>
@@ -38,8 +38,8 @@
                 <th scope="col">22</th>
             </thead>
             <tbody>
-                <tr *ngFor="let res of jsonResults">
-                    <td>{{ res.name }}</td>
+                <tr>
+                    <!-- <td>{{ res.name }}</td>
                     <td>{{ res.totalScore }}</td>
                     <td>{{ res.score[0] }}</td>
                     <td>{{ res.score[1] }}</td>
@@ -62,7 +62,7 @@
                     <td>{{ res.score[18] }}</td>
                     <td>{{ res.score[19] }}</td>
                     <td>{{ res.score[20] }}</td>
-                    <td>{{ res.score[21] }}</td>
+                    <td>{{ res.score[21] }}</td> -->
                 </tr>
             </tbody>
         </table>

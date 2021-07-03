@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HomeComponent } from './home.component';
-import * as jsonRes from 'src/assets/wyniki.json';
+const txtRes = require('src/assets/InputTestFile.txt');
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -24,6 +24,6 @@ describe('HomeComponent', () => {
     fixture.nativeElement.querySelector('input').click();
 
     fixture.detectChanges();
-    expect(jsonRes).toBeTruthy();
+    expect(txtRes).toBeTruthy();
   });
 });
