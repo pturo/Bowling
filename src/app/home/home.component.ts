@@ -47,21 +47,20 @@ export class HomeComponent implements OnInit {
     let file = event.target.files[0];
     let fileReader: FileReader = new FileReader();
     fileReader.onloadend = function () {
-      let rows = (<string>fileReader.result).split('\n');
-      //console.log("rows: " + rows);
+      let rows = (<string>fileReader.result).toString().replace(/[\r\n]+/gm, ",").split("\n");
+      console.log("rows: " + rows);
       // get each row of txt file
       for (var i = 0; i < rows.length; i++) {
         var validRowData = [];
-        var rowData = rows[i].split(',');
+        var rowData = rows[i].split(",");
         console.log("rowData: " + rowData);
         // get data from row
-        for (var j = 0; j < rowData.length; j++) {
+        for(var j = 0; j < rowData.length; j++) {
           if (rowData[j] == "") {
           } else {
             validRowData.push(rowData[j]);
           }
         }
-        //console.log("validRowData: " + validRowData);
 
         // create row template
         var rowTemplate = "<tr>";
