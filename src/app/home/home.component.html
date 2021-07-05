@@ -10,10 +10,9 @@
     <div class="content p-3 mb-2 bg-dark text-white">
         <label>Wczytaj plik: </label>
         <input class="btn btn-primary" type="file" (change)="loadData($event)">
-        <table id="resultsTable" class="table table-dark" border="2" align="center">
+        <table class="table table-dark" border="2" align="center">
             <thead>
                 <th scope="col">Zawodnik</th>
-                <th scope="col">Wynik</th>
                 <th scope="col">1</th>
                 <th scope="col">2</th>
                 <th scope="col">3</th>
@@ -36,35 +35,9 @@
                 <th scope="col">20</th>
                 <th scope="col">21</th>
                 <th scope="col">22</th>
+                <th scope="col">Wyniki</th>
             </thead>
-            <tbody>
-                <tr>
-                    <!-- <td>{{ res.name }}</td>
-                    <td>{{ res.totalScore }}</td>
-                    <td>{{ res.score[0] }}</td>
-                    <td>{{ res.score[1] }}</td>
-                    <td>{{ res.score[2] }}</td>
-                    <td>{{ res.score[3] }}</td>
-                    <td>{{ res.score[4] }}</td>
-                    <td>{{ res.score[5] }}</td>
-                    <td>{{ res.score[6] }}</td>
-                    <td>{{ res.score[7] }}</td>
-                    <td>{{ res.score[8] }}</td>
-                    <td>{{ res.score[9] }}</td>
-                    <td>{{ res.score[10] }}</td>
-                    <td>{{ res.score[11] }}</td>
-                    <td>{{ res.score[12] }}</td>
-                    <td>{{ res.score[13] }}</td>
-                    <td>{{ res.score[14] }}</td>
-                    <td>{{ res.score[15] }}</td>
-                    <td>{{ res.score[16] }}</td>
-                    <td>{{ res.score[17] }}</td>
-                    <td>{{ res.score[18] }}</td>
-                    <td>{{ res.score[19] }}</td>
-                    <td>{{ res.score[20] }}</td>
-                    <td>{{ res.score[21] }}</td> -->
-                </tr>
-            </tbody>
+            <tbody id="tBodyClear"></tbody>
         </table>
     </div>
     <div class="footer p-3 mb-2 bg-secondary text-white">
